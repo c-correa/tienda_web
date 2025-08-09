@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard Admin</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="min-h-screen flex bg-gray-100">
+  <aside class="w-64 bg-white shadow-md p-4 flex flex-col">
+    <h2 class="text-xl font-bold mb-6">Navegación</h2>
+    <nav>
+      <ul>
+        <li>
+          <button id="btn-categories" class="w-full text-left py-2 px-3 hover:bg-blue-100 rounded">
+            Categorías
+          </button>
+        </li>
+        <li>
+          <button id="btn-products" class="w-full text-left py-2 px-3 hover:bg-blue-100 rounded">
+            Productos
+          </button>
+        </li>
+      </ul>
+    </nav>
+    <button id="logoutBtn" class="mt-auto bg-red-500 text-white py-2 rounded hover:bg-red-600">
+      Cerrar sesión
+    </button>
+  </aside>
+
+  <main id="admin-dashboard" class="flex-1 p-6 overflow-auto">
+    <h1 class="text-3xl font-bold mb-6">Panel de Administración</h1>
+    <section id="content" class="bg-white p-4 rounded shadow">
+      <p>Selecciona una opción del menú.</p>
+    </section>
+  </main>
+
+  <div id="category-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg shadow-xl w-full max-w-md">
+      <h2 id="modal-title" class="text-2xl font-bold mb-4"></h2>
+      <form id="category-form">
+        <input type="hidden" id="category-id" />
+        <div>
+          <label for="category-name" class="block mb-2 text-sm font-medium text-gray-900">
+            Nombre de la Categoría
+          </label>
+          <input type="text" id="category-name" name="name" class="w-full px-3 py-2 border rounded" required />
+        </div>
+        <div class="flex justify-end mt-6 space-x-4">
+          <button type="button" id="btn-cancel" class="py-2 px-4 bg-gray-300 rounded hover:bg-gray-400">
+            Cancelar
+          </button>
+          <button type="submit" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600">
+            Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+<div id="product-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+  <div class="bg-white p-6 rounded-lg shadow-xl w-full max-w-lg">
+    <h2 id="product-modal-title" class="text-2xl font-bold mb-4"></h2>
+    <form id="product-form" class="space-y-4">
+      <input type="hidden" id="product-id" />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label for="product-name" class="block text-sm font-medium">Nombre del Producto</label>
+          <input type="text" id="product-name" class="w-full px-3 py-2 border rounded" required />
+        </div>
+        <div>
+          <label for="product-category" class="block text-sm font-medium">Categoría</label>
+          <select id="product-category" class="w-full px-3 py-2 border rounded" required>
+            </select>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label for="product-price-buy" class="block text-sm font-medium">Precio Compra</label>
+          <input type="number" id="product-price-buy" step="0.01" class="w-full px-3 py-2 border rounded" required />
+        </div>
+        <div>
+          <label for="product-price-sell" class="block text-sm font-medium">Precio Venta</label>
+          <input type="number" id="product-price-sell" step="0.01" class="w-full px-3 py-2 border rounded" required />
+        </div>
+        <div>
+          <label for="product-stock" class="block text-sm font-medium">Stock</label>
+          <input type="number" id="product-stock" class="w-full px-3 py-2 border rounded" required />
+        </div>
+      </div>
+      
+      <div class="flex justify-end pt-4 space-x-4">
+        <button type="button" id="btn-product-cancel" class="py-2 px-4 bg-gray-300 rounded hover:bg-gray-400">Cancelar</button>
+        <button type="submit" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <script type="module" src="/src/scripts.js"></script>
+</body>
+</html>
