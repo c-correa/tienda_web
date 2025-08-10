@@ -42,7 +42,7 @@ export async function registerStudent(email, password) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     // El rol se envía directamente aquí, ya que este endpoint es solo para estudiantes
-    body: JSON.stringify({ email, password, role: "student" }),
+    body: JSON.stringify({ email, password, role: "estudiante" }),
   });
   const data = await res.json();
   if (!res.ok) throw new Error(data.message || "Error en el registro");
