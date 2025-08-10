@@ -19,7 +19,7 @@ export function initLoginPage() {
       saveSession(data.access_token, data.role);
 
       // Redireccionar
-      if (data.role === "student") {
+      if (data.role === "estudiante") {
         window.location.href = "dashboard-student.html";
       } else if (data.role === "professor" || data.role === "admin") {
         window.location.href = "dashboard-admin.html";
