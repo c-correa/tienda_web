@@ -38,7 +38,7 @@ export function checkAuthAndRole(allowedRoles) {
 }
 
 export async function registerStudent(email, password) {
-  const res = await fetch(`${API_BASE}/register-student`, {
+  const res = await fetch(`${API_BASE}/auth/register-student`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     // El rol se envía directamente aquí, ya que este endpoint es solo para estudiantes
